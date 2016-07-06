@@ -3,6 +3,7 @@ import usb.util
 
 dev = usb.core.find()
 
-for device in dev
-    print device
+for device in dev:
+    print (device)
 
+print ('end print statement')
