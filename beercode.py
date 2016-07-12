@@ -1,9 +1,21 @@
 import usb.core
 import usb.util
 
-dev = usb.core.find()
+def foundCode(barcode):
+    print ("The barcode is: ")
+    print (barcode)
 
-for device in dev:
-    print (device)
+#grab the barcode scanner
+while True:
+    try:
+        code = int(input('Input:'))
+        foundCode(code)
+    except ValueError:
+        print("Not a number")
 
-print ('end print statement')
+
+
+
+
+
+
