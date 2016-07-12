@@ -1,3 +1,0 @@
-Credit for the PyUsb library should be given to walac on GitHub. All I did was grab it here:
-
-https://github.com/walac/pyusb
