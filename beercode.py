@@ -11,20 +11,22 @@ UPC = ""
 # pass the barcode into the BreweryDB API
 def beerdb(UPC):
     # TODO: remove print statement
-    print("Calling API with UPC "+UPC+":")
+    print('in the beerdb method')
 
     #API call
     req = requests.get(URL+"search/upc?code="+UPC+"&key="+API_KEY+"&format=json")
     data = req.json()
 
     #print output of call for testing purposes
-    print("API call resulted in: ")
     print(data)
 
 # function executes when a barcode is scanned
-def foundCode(UPC):
-    print("The barcode from the scanner is: ")
-    print(UPC)
+def foundCode(barcode):
+    print("The barcode is: ")
+    print(barcode)
+
+    #having verified the barcode "works" we'll make the value the universal UPC
+    UPC = str(barcode)
     beerdb(UPC)
 
 
@@ -32,7 +34,8 @@ def foundCode(UPC):
 # grab the barcode scanner
 while True:
     try:
-        UPC = int(input('Input:'))
-        foundCode(UPC)
+        scannedBarcode = input('Input:')
+        scannedBarcode = int(scannedBarcode)
+        foundCode(scannedBarcode)
     except:
         print("Problem in main True loop. Barcode likely not an integer")
